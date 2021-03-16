@@ -14,31 +14,23 @@ See `./run.sh`
 ```
 scipy.optimize.quadratic_assignment(A, B, method='2opt')
 ```
-
 However, it should be substantially faster (>10x)
 
 - Running w/ `popsize > 1`, `piter > 1` and multiple threads should really dominate `scipy`'s implementation.
 
 ## Example
 
-```
-$ OMP_NUM_THREADS=1 python test.py
-{
-  "sq_time": 4.903386354446411,
-  "faq_time": 0.009653806686401367,
-  "two_time": 0.7653300762176514,
-  "sq_score": 15978,
-  "faq_score": 16060,
-  "two_score": 16276
-}
+```bash
+# nug30.dat / piter=32 / popsize=24
+# optimal solution: 6124
 
 $ OMP_NUM_THREADS=24 python test.py
 {
-  "sq_time": 0.3665273189544678,
-  "faq_time": 0.014138460159301758,
-  "two_time": 0.32042860984802246,
-  "sq_score": 15918,
-  "faq_score": 16060,
-  "two_score": 16476
+  "sq_time"   : 0.08106613159179688,
+  "faq_time"  : 0.0065462589263916016,
+  "two_time"  : 0.11268234252929688,
+  "sq_score"  : 6128,
+  "faq_score" : 6290,
+  "two_score" : 6336
 }
 ```

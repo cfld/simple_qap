@@ -37,7 +37,7 @@ A, B = read_prob('data/qaplib/nug30.dat')
 # !! runtime and solution quality increase w/ piters and popsize
 
 t       = time()
-res     = qap(A, B, piters=100, popsize=100, seed=123)
+res     = qap(A, B, piters=32, popsize=24, seed=123)
 sq_time = time() - t
 
 sq_score = (A * B[res][:,res]).sum()
