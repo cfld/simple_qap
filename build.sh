@@ -13,8 +13,3 @@ cd build
 cmake ..
 make -j12
 cd ..
-
-# --
-# Run test
-
-python test.py
