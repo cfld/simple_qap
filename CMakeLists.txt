@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.6)
 project(simple_qap)
 
 set(CMAKE_CXX_COMPILER "/usr/bin/g++")
-set(CMAKE_VERBOSE_MAKEFILE on)
 
 find_package(OpenMP)
 find_package(PythonInterp 3.7 REQUIRED)
