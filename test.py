@@ -37,7 +37,7 @@ A, B = read_prob('data/qaplib/nug30.dat')
 # !! runtime and solution quality increase w/ piters and popsize
 
 t       = time()
-res     = qap(A, B, piters=32, popsize=24, seed=123)
+res     = qap(- A, B, piters=32, popsize=128, seed=123)
 sq_time = time() - t
 
 sq_score = (A * B[res][:,res]).sum()
@@ -46,11 +46,11 @@ sq_score = (A * B[res][:,res]).sum()
 # Run Scipy baselines
 
 t         = time()
-faq_score = quadratic_assignment(A, B, method='faq').fun
+faq_score = - quadratic_assignment(- A, B, method='faq', options={'maximize' : True}).fun
 faq_time  = time() - t
 
 t         = time()
-two_score = quadratic_assignment(A, B, method='2opt').fun
+two_score = - quadratic_assignment(- A, B, method='2opt', options={'maximize' : True}).fun
 two_time  = time() - t
 
 # --
